@@ -10,4 +10,6 @@ The general structure of our implementation is a server which handles the logic 
 
 ![Have fun](pictures/Curverfever_Titelpage1.PNG?raw=true)
 
+## Authors
+
 This Game was developed by Silvano Dami, Kerstin Wehrmann, Jing Zhang and Miran Özdogan
