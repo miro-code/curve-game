@@ -1,0 +1,345 @@
+* {
+    font-family: Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #282828;
+    color: whitesmoke;
+    margin-left: 20px;
+}
+
+p {
+    max-width: 700px;
+}
+
+label {
+    cursor: pointer;
+}
+
+fieldset {
+    max-width: 700px;
+    border-radius: 5px;
+}
+
+#canvas {
+    display: none;
+}
+
+#intro {
+    display: block;
+}
+
+.gameOver {
+    font-size: 30px;
+    position: relative;
+}
+
+#tie {
+    display: none;
+}
+
+.button {
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+.button:enabled {
+    background-color: green;
+    color: whitesmoke;
+    border-color: darkgreen;
+    cursor: pointer;
+}
+
+#startButton, #restartButton {
+    position: relative; 
+    top: 50%;
+    left: 50%;
+}
+
+:disabled {
+    background-color: lightgray;
+}
+
+.overlay {
+    position: fixed;
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+
+.overlayMessage {
+    font-size: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    height: auto;
+    overflow: hidden;
+}
+
+#countdown {
+    font-size: 80px;
+}
+
+#redLabel {
+    color: #b5412f
+}
+
+#greenLabel {
+    color: #75db21
+}
+
+#blueLabel {
+    color: #0c67c9
+}
+
+#purpleLabel {
+    color: #592075
+}
+
+#yellowLabel {
+    color: #ffff00
+}
+
+#orangeLabel {
+    color: #c97d20
+}
+
+#graph {
+    display: none;
+    padding: 1em 1.5em 1.5em;
+    background-color: #153a50;
+    width: 14%;
+    height: 93%;
+    border-radius: 15px;
+    position: absolute;
+    top: 62%;
+    left: 91%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.spaceshipImage {
+    position: relative;
+}
+
+#fatFrankImage {
+    width: 128px;
+    height: 128px;
+}
+
+#averageAntonImage {
+    width: 96px;
+    height: 96px;
+}
+
+#tinyTerriImage {
+    width: 64px;
+    height: 64px;
+}
+
+.player {
+    height: 130px;
+    margin-top: 5px;
+    display: flex;
+    overflow: hidden;
+}
+
+.skills {
+    padding-bottom: 3px;
+    font-size: 14px;
+}
+
+.skillBarSpeed, .skillBarHandling, .skillBarWidth {
+    height: 100%;
+    padding: 2px 0 2px 5px;
+    border-radius: 5px;
+    overflow: visible;
+}
+
+.skillBarSpeed {
+    background-color: #b5412f;
+}
+
+.skillBarHandling {
+    background-color: #2196F3;
+}
+
+.skillBarWidth {
+    background-color: #4CAF50;
+}
+
+.skillBarSpeed.tinyTerri {
+    width: 90%;
+}
+
+.skillBarHandling.tinyTerri {
+    width: 80%;
+}
+
+.skillBarWidth.tinyTerri {
+    width: 10%;
+}
+
+.skillBarSpeed.fatFrank {
+    width: 30%;
+}
+
+.skillBarHandling.fatFrank {
+    width: 40%;
+}
+
+.skillBarWidth.fatFrank {
+    width: 90%;
+}
+
+.skillBarSpeed.averageAnton {
+    width: 70%;
+}
+
+.skillBarHandling.averageAnton {
+    width: 60%;
+}
+
+.skillBarWidth.averageAnton {
+    width: 60%;
+}
+
+.leftSide {
+    width: 70%;
+    display: block;
+}
+
+.rightSide {
+    width: 25%;
+}
+
+.buffsTimer{
+    display: block;
+    position: relative;
+    top: 7%;
+    width: 100%;
+    height: 70%;
+}
+
+#title {
+    font-size: 18px;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.buffsInfo{
+    position: relative;
+    bottom: 6%;
+    font-size: 14px;
+    line-height: 19px;
+    color: whitesmoke; 
+    overflow: hidden;
+}
+
+#name {
+    font-size: 14px;
+    color:whitesmoke;
+    top: 0;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.progress-bar2{
+    position: relative;
+    height: 6px;
+    padding: 5px;
+    margin-bottom: 1em;
+    overflow: visible;
+    border-radius: 10px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #7992a8;
+}
+.progress-bar2 .progress-value2{
+    display: block;
+    padding: 3px 7px;
+    font-size: 14px;
+    color: whitesmoke;
+    position: absolute;
+    top: -5px;
+    right: -30px;
+}
+
+.progress-bar2 .active{
+    animation: reverse progress-bar-stripes 0.40s linear infinite, animate-positive 2s;
+}
+@-webkit-keyframes animate-positive{
+    0% { width: 0; }
+}
+@keyframes animate-positive{
+    0% { width: 0; }
+}        
+
+#graphEnd {
+    display: none;
+    padding: 1em 1.5em 1.5em;
+    background-color: transparent;
+    width: 55%;
+    height: auto;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+#nameEnd {
+    font-size: 25px;
+    color:whitesmoke;
+    top: 0;
+    margin-top: 20px;
+    margin-bottom: 7px;
+}
+
+.progress-bar{
+    position: relative;
+    height: 35px;
+    padding: 5px;
+    margin-bottom: 1em;
+    overflow: visible;
+    border-radius: 20px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #7992a8;
+}
+.progress-bar .progress-value{
+    display: block;
+    padding: 3px 7px;
+    font-size: 18px;
+    color: whitesmoke;
+    position: absolute;
+    right: -60px;
+}
+
+.progress-bar .active{
+    animation: reverse progress-bar-stripes 0.40s linear infinite, animate-positive 2s;
+}
+@-webkit-keyframes animate-positive{
+    0% { width: 0; }
+}
+@keyframes animate-positive{
+    0% { width: 0; }
+}        

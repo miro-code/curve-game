@@ -1,0 +1,13 @@
+env:
+  commonjs: true
+  es6: true
+plugins:
+  - prettier
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+rules:
+  linebreak-style:
+    - error
+    - unix
+  prettier/prettier: error

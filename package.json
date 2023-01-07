@@ -1,0 +1,26 @@
+{
+  "name": "curvefever",
+  "version": "1.0.0",
+  "description": "An sep template",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint \"client/**/*.js\" \"server/**/*.js\"",
+    "lint-fix": "npm run lint -- --fix",
+    "start": "node server/Server.js",
+    "docs": "jsdoc -c jsdoc-config.json"
+  },
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.17.1",
+    "rambda": "^5.11.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "jsdoc": "^3.6.4",
+    "prettier": "^2.0.5"
+  }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Curvefever</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Willkommen bei Curvefever!</h1>
+    <canvas id="canvas" width="1000" height="700"></canvas>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="main.js"></script>
+    <div id="intro">
+      <h2>Anleitung</h2>
+    <p>
+      Du steuerst eine Rakete, die eine Spur hinterlässt.<br>
+      Mit der linken und rechten Pfeiltaste drehst du deine Rakete.<br>
+      Nimm dich in acht vor den Spuren!<br>
+      Wenn du deine eigene Spur oder die eines Gegners berührst, stirbst du!<br>
+      Ziel des Spiels ist es, so lange wie möglich zu überleben.<br>
+      Besuche die Planeten, um Extras zu bekommen!
+    </p>
+    <h2>Mach mit!</h2>
+    <form>
+        <label for="playerName">
+          <h3>Wie heißt du?</h3>
+        </label>
+        <input type="text" id="playerName" name="playerName">
+        <h3>Welches Raumschiff möchtest du steuern?</h3>
+        <fieldset>
+          <input type="radio" id="TinyTerri" name="spaceship" value="TinyTerri" checked>
+          <label for="TinyTerri" class="spaceshipName">Tiny Terri - klein und schnell
+            <a class="player">
+              <div class="player leftSide">
+                <div class="skills">
+                  <div class="skillBarSpeed tinyTerri">Geschwindigkeit</div>
+                </div>
+                <div class="skills">
+                  <div class="skillBarHandling tinyTerri">Handling</div>
+                </div>
+                <div class="skills">
+                  <div class="skillBarWidth tinyTerri">Spurbreite</div>
+                </div>
+              </div>
+              <div class="player rightSide">
+                <img class="spaceshipImage" id="tinyTerriImage" src="./images/spaceship03.png">
+              </div>
+            </a>
+          </label>
+
+          <input type="radio" id="AverageAnton" name="spaceship" value="AverageAnton">
+          <label for="AverageAnton" class="spaceshipName">Average Anton - der Mittelweg
+            <a class="player">
+              <div class="player leftSide">
+                <div class="skills">
+                  <div class="skillBarSpeed averageAnton">Geschwindigkeit</div>
+                </div>
+                <div class="skills">
+                  <div class="skillBarHandling averageAnton">Handling</div>
+                </div>
+                <div class="skills">
+                  <div class="skillBarWidth averageAnton">Spurbreite</div>
+                </div>
+              </div>
+              <div class="player rightSide">
+                <img class="spaceshipImage" id="averageAntonImage" src="./images/spaceship02.png">
+              </div>
+            </a>
+          </label>
+
+          <input type="radio" id="FatFrank" name="spaceship" value="FatFrank">
+          <label for="FatFrank" class="spaceshipName">Fat Frank - groß und langsam
+            <a class="player">
+              <div class="player leftSide">
+                <div class="skills">
+                  <div class="skillBarSpeed fatFrank">Geschwindigkeit</div>
+                </div>
+                <div class="skills">
+                  <div class="skillBarHandling fatFrank">Handling</div>
+                </div>
+                <div class="skills">
+                  <div class="skillBarWidth fatFrank">Spurbreite</div>
+                </div>
+              </div>
+              <div class="player rightSide">
+                <img class="spaceshipImage" id="fatFrankImage" src="./images/spaceship01.png">
+              </div>
+            </a>
+          </label>
+        </fieldset>
+        <h3>Welche Farbe soll deine Spur haben?</h3>
+        <fieldset>
+          <p>
+            <input type="radio" id="red" name="color" value="Red" checked>
+            <label id="redLabel" for="red">Rot</label>
+          </p>
+          <p>
+            <input type="radio" id="green" name="color" value="Green">
+            <label id="greenLabel" for="green">Grün</label>
+          </p>
+          <p>
+            <input type="radio" id="blue" name="color" value="Blue">
+            <label id="blueLabel" for="blue">Blau</label>
+          </p>
+          <p>
+            <input type="radio" id="purple" name="color" value="Purple">
+            <label id="purpleLabel" for="purple">Lila</label>
+          </p>
+          <p>
+            <input type="radio" id="yellow" name="color" value="Yellow">
+            <label id="yellowLabel" for="yellow">Gelb</label>
+          </p>
+          <p>
+            <input type="radio" id="orange" name="color" value="Orange">
+            <label id="orangeLabel" for="orange">Orange</label>
+          </p>
+        </fieldset>
+        <p>
+          <input type="button" class="button" id="joinButton" value="Los geht's!" disabled>
+        </p>
+    </form>
+    </div>
+
+    <div id="graph">
+      <h3 id = "title">Scores</h3>
+        <div id = "barsInScoreboard"></div>
+
+      <div class="buffsTimer">
+        <h3 id = "title">Extras: Restdauer</h3>
+        <br>      
+          <p class = "buffsInfo" id="buffsData"></p>      
+      </div>
+    </div>
+
+    <div id = "graphEnd">
+      <div class="gameOver" id="gameOver">
+        Das Spiel ist vorbei - 
+        <div id="winner">
+          <a id="winnerName"></a> hat gewonnen!
+        </div>
+        <div id="tie">
+          unentschieden!
+        </div>
+      </div>
+      <div id = "endScoresBars"></div>
+      <input class="button" type="button" id="restartButton" value="Nochmal!">
+    </div>
+
+    <div class="overlay" id="waitingOverlay">
+      <p class="overlayMessage" id="waitingMessage">
+        Warte auf Mitspieler...<br>
+        <input class="button" type="button" id="startButton" value="Start" disabled>
+      </p>
+    </div>
+    <div class="overlay" id="countdownOverlay">
+      <p class="overlayMessage" id="countdown"></p>
+    </div>
+    <div class="overlay" id="deathOverlay">
+      <p class="overlayMessage" id="deathMessage">
+        Du bist gestorben!
+      </p>
+    </div>
+  </body>
+</html>
