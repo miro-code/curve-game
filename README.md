@@ -1,8 +1,8 @@
-# CURVE FEVER
+# CURVE GAME
 
-## What is Curve Fever?
+## What is Curve Game?
 
-Curve Fever, in a nutshell, is a four player multiplayer game, where you steer a spaceship, build colored walls and win by crashing your enemies into said strucutres. All in all it is a game template that has a vast possibility for features, and thusly can be improved without end.
+Curve Game, in a nutshell, is a four player multiplayer game, where you steer a spaceship, build colored walls and win by crashing your enemies into said strucutres. All in all it is a game template that has a vast possibility for features, and thusly can be improved without end.
 
 ## How is it implemented and how do you run it?
 
